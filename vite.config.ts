@@ -9,8 +9,10 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       host: '0.0.0.0',
-
-      // ✅ Add this line
+      // This is for local dev only
+    },
+    preview: {
+      // ✅ Render uses this, not server.allowedHosts
       allowedHosts: ['smart-voice-ai-mock-interview.onrender.com']
     },
     plugins: [react()],
@@ -25,4 +27,3 @@ export default defineConfig(({ mode }) => {
     }
   };
 });
-
