@@ -8,18 +8,23 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       port: 3000,
-      host: '0.0.0.0',
-      // This is for local dev only
+      host: '0.0.0.0'
     },
+
     preview: {
-      // ✅ Render uses this, not server.allowedHosts
-      allowedHosts: ['smart-voice-ai-mock-interview.onrender.com']
+      host: true,   // 👈 REQUIRED on Render
+      allowedHosts: [
+        'smart-voice-ai-mock-interview.onrender.com'
+      ]
     },
+
     plugins: [react()],
+
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
+
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
